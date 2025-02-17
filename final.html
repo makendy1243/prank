@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт с картинкой и звуком</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #00ff00, #006400); /* Очень контрастный зелёный градиент */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #image {
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Нажми на картинку!</h1>
+        <img src="C:/Users/hatak/Desktop/gavno/1.png" id="image" width="300" height="300">
+    </div>
+
+    <!-- Аудиофайл -->
+    <audio id="sound" src="C:/Users/hatak/Desktop/gavno/2.mp3"></audio>
+
+    <script>
+        // Ждём полной загрузки страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const image = document.getElementById('image');
+            const sound = document.getElementById('sound');
+
+            // Обработчик события на клик по картинке
+            image.addEventListener('click', function() {
+                if (sound) {
+                    sound.play(); // Воспроизводим звук
+                } else {
+                    console.error('Звук не найден!');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
