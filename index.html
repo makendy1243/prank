@@ -47,16 +47,36 @@
 
     <div class="container">
         <h1>Нажми на картинку!</h1>
-<img src="https://raw.githubusercontent.com/makendy1243/prank/main/1.png" id="image" width="300" height="300">    </div>
+        <img src="https://raw.githubusercontent.com/makendy1243/prank/main/1.png" id="image" width="300" height="300">
+    </div>
 
     <!-- Аудиофайл -->
-<audio id="sound" src="https://raw.githubusercontent.com/makendy1243/prank/main/2.mp3" type="audio/mpeg"></audio>
+    <audio id="sound" src="https://raw.githubusercontent.com/makendy1243/prank/main/2.mp3" type="audio/mpeg"></audio>
 
     <script>
+        // Функция для перехода в полноэкранный режим
+        function enterFullScreen() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                document.documentElement.msRequestFullscreen();
+            }
+        }
+
         // Ждём полной загрузки страницы
         document.addEventListener('DOMContentLoaded', function() {
             const image = document.getElementById('image');
             const sound = document.getElementById('sound');
+
+            // Устанавливаем громкость звука на 100% при загрузке
+            sound.volume = 1.0; // Максимальная громкость
+
+            // Включаем полноэкранный режим при загрузке страницы
+            enterFullScreen();
 
             // Обработчик события на клик по картинке
             image.addEventListener('click', function() {
