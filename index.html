@@ -74,18 +74,19 @@
 
             // Устанавливаем громкость звука на 100% при загрузке
             sound.volume = 1.0; // Максимальная громкость
+        });
 
-            // Включаем полноэкранный режим при загрузке страницы
+        // Обработчик события на клик по картинке
+        document.getElementById('image').addEventListener('click', function() {
+            const sound = document.getElementById('sound');
+            if (sound) {
+                sound.play(); // Воспроизводим звук
+            } else {
+                console.error('Звук не найден!');
+            }
+            
+            // Включаем полноэкранный режим при клике на картинку
             enterFullScreen();
-
-            // Обработчик события на клик по картинке
-            image.addEventListener('click', function() {
-                if (sound) {
-                    sound.play(); // Воспроизводим звук
-                } else {
-                    console.error('Звук не найден!');
-                }
-            });
         });
     </script>
 
